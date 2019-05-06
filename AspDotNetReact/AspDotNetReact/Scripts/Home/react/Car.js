@@ -25,8 +25,7 @@ class Car extends Component {
         const optionsData = [
             { value: "", label: "--Select Vehicle--"},
             { value: "Car", label: "Car" },
-            { value: "Scotter", label: "Scotter" },
-            { value: "Bike", label: "Bike", className: "myOptionClassName" }
+            { value: "Scotter", label: "Scotter" }
         ];
         this.setState({ option: optionsData });
 
