@@ -26,8 +26,7 @@ namespace AspDotNetReact.Controllers
         [HttpPost]
         public JsonResult SaveData(VehicleModel vehicleModelData)
         {
-            
-
+           
             ExtensionHelper.historyData.Add(vehicleModelData);
             ExtensionHelper.CreateVehicle(vehicleModelData);
             

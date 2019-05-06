@@ -6,8 +6,8 @@ import axios from 'axios';
 
 export default class Vehicleform extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             Model: '',
             Make: '',
@@ -17,6 +17,7 @@ export default class Vehicleform extends Component {
             BodyType: '',
             Datasaved: false
         };
+      
     }
 
     handleChange = e => {
@@ -37,20 +38,23 @@ export default class Vehicleform extends Component {
             Wheelscount: this.state.WheelsCount,
             BodyType: this.state.BodyType
         }
+       
 
-
-        axios.post('/Data/SaveData', data)
+        axios.post('/Data/SaveData',  data)
             .then(response => {
                 this.setState({ Datasaved: true })
                 $("#successDiv").removeClass('hidden');
+                
             })
             .catch(error => {
                 console.log(error)
-            });
+            })
+            
 
     }
 
     componentDidMount() {
+
 
         this.setState({
             Model: '',
@@ -68,8 +72,9 @@ export default class Vehicleform extends Component {
             color: 'red',
             fontsize: 'large'
         };
+       
         return (
-            <form className="mt-5" onSubmit={this.handleSubmit}>
+            <form className="mt-5" onSubmit={this.handleSubmit} id=""tset>
                 <div className="alert alert-success hidden" id="successDiv" >
                     <strong>Success! Data Saved Successfully.</strong>
                 </div>
@@ -85,8 +90,6 @@ export default class Vehicleform extends Component {
                     <span style={requiredStyle}>*</span> <label>Enter the {this.props.vehicle} Make: </label>
                     <input type="text" className="form-control" name="Make" value={this.Make} onChange={this.handleChange} required />
                 </div>
-
-             
 
                 <div className="form-group">
                     <span style={requiredStyle}>*</span><label>Enter the Vehicle Type: </label>
@@ -107,8 +110,10 @@ export default class Vehicleform extends Component {
                     <span style={requiredStyle}>*</span><label>Enter the {this.props.vehicle} BodyType: </label>
                     <input type="text" className="form-control" name="BodyType" value={this.BodyType} onChange={this.handleChange} required />
                 </div>
+               
+                
 
-                <button type="submit" className="btn btn-primary">Save</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         );
     }

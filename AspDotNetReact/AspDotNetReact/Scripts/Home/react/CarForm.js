@@ -81,7 +81,7 @@ export default class CarForm extends Component {
             <form className="mt-5" onSubmit={this.handleSubmit}>
                 <h1>{this.props.vehicle} Form</h1>
                 <div className="alert alert-success hidden" id="successDiv" >
-                    <strong>Success! Data Saved Successfully.Click link to check added vehicles<a>Vehicle List</a></strong>
+                    <strong>Success! Data Saved Successfully.</strong>
                  </div>
                 <div className="form-group">
                     <span style={requiredStyle}>*</span><label>Enter the {this.props.vehicle} Model: </label>
@@ -119,7 +119,7 @@ export default class CarForm extends Component {
                     <input type="text" className="form-control" name="PassengerSeats" value={this.PassengerSeats} pattern="[0-9]*" onChange={this.handleChange} required />
                 </div>
 
-                <button type="submit" className="btn btn-primary">Save</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         );
     }

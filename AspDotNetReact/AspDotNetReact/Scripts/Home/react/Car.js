@@ -13,7 +13,13 @@ class Car extends Component {
 
     ChangeVehicle = e => {
         this.setState({ Vehicle: e.target.value });
-        this.setState({ showCarForm: true });
+        if (e.target.value == "") {
+            this.setState({ showCarForm: false });
+        }
+        else {
+            this.setState({ showCarForm: true });
+        }
+       
     };
     componentDidMount() {
         const optionsData = [
@@ -42,7 +48,7 @@ class Car extends Component {
                         ))}
                     </select>
                    
-                    {this.state.showCarForm && this.state.Vehicle == "Car" ? <CarForm vehicle={this.state.Vehicle} /> : <VehicleForm vehicle={this.state.Vehicle} />}
+                    {this.state.showCarForm && this.state.Vehicle == "Car" ? <CarForm vehicle={this.state.Vehicle} /> : this.state.showCarForm ? <VehicleForm vehicle={this.state.Vehicle} />:null}
                  
                 </div>
             </section>
