@@ -10,6 +10,7 @@ namespace AspDotNetReact.Domain
 {
     public static  class ExtensionHelper
     {
+        public static  List<VehicleModel> historyData = new List<VehicleModel>();
         public enum VehicleType
         {
             Car,
@@ -32,7 +33,8 @@ namespace AspDotNetReact.Domain
              new Dictionary<VehicleType, IVehicleType>();
             _strategies.Add(VehicleType.Car, new VehicleCar());                               
            _strategies.Add(VehicleType.Bike, new VehicleBike());
-           
+            _strategies.Add(VehicleType.Default, new DefaultVehicle());
+
         }
 
         #endregion
@@ -40,8 +42,11 @@ namespace AspDotNetReact.Domain
         {
             VehicleType vehicleType;
             CreateList();
-           
+            if (!Enum.IsDefined(typeof(VehicleType), vehicleTypeData.VehicleType))
+                vehicleType = VehicleType.Default;
+            else
             Enum.TryParse(vehicleTypeData.VehicleType, out vehicleType);
+
             if (_strategies.ContainsKey(vehicleType))
                 _strategies[vehicleType].Save(vehicleTypeData);
             else

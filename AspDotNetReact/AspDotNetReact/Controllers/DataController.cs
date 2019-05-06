@@ -26,8 +26,9 @@ namespace AspDotNetReact.Controllers
         [HttpPost]
         public JsonResult SaveData(VehicleModel vehicleModelData)
         {
-            vm.Add(vehicleModelData);
-            Session["vehicleList"] = vm;
+            
+
+            ExtensionHelper.historyData.Add(vehicleModelData);
             ExtensionHelper.CreateVehicle(vehicleModelData);
             
             return null;
@@ -40,9 +41,9 @@ namespace AspDotNetReact.Controllers
                 NumberofDoors = vehicleProperties.NumberofDoors,
                 PassengerSeats = vehicleProperties.PassengerSeats
             };
-            
-            vm.Add(vehicleModelData);
-            Session["vehicleList"] = vm;
+
+
+            ExtensionHelper.historyData.Add(vehicleModelData);
             ExtensionHelper.CreateVehicle(vehicleModelData);
             return null;
         }

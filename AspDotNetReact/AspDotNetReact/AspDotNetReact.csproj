@@ -153,11 +153,13 @@
     <Content Include="package.json" />
     <Content Include=".babelrc" />
     <Content Include="Scripts\dist\Home\react\bundle.js" />
+    <Content Include="Scripts\Home\react\Button.js" />
     <Content Include="Scripts\Home\react\Car.js" />
     <Content Include="Scripts\Home\react\CarForm.js" />
     <Content Include="Scripts\Home\react\Data.js" />
     <Content Include="Scripts\Home\react\index.js" />
     <Content Include="Scripts\Home\react\VehicleForm.js" />
+    <Content Include="Scripts\Home\react\VehicleList.js" />
     <Content Include="webpack.config.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

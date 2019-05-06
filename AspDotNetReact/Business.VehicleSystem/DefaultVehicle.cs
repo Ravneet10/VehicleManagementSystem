@@ -8,7 +8,7 @@ using DAL.VehicleSystem.DALEntities;
 
 namespace Business.VehicleSystem
 {
-   public class DefaultVehicle
+   public class DefaultVehicle:IVehicleType
     {
        
         

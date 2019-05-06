@@ -1,6 +1,9 @@
 ﻿import React, { Component } from 'react';
 import axios from 'axios';
 
+
+
+
 export default class Vehicleform extends Component {
 
     constructor() {
@@ -39,7 +42,7 @@ export default class Vehicleform extends Component {
         axios.post('/Data/SaveData', data)
             .then(response => {
                 this.setState({ Datasaved: true })
-                console.log(this.state);
+                $("#successDiv").removeClass('hidden');
             })
             .catch(error => {
                 console.log(error)
@@ -67,6 +70,11 @@ export default class Vehicleform extends Component {
         };
         return (
             <form className="mt-5" onSubmit={this.handleSubmit}>
+                <div className="alert alert-success hidden" id="successDiv" >
+                    <strong>Success! Data Saved Successfully.</strong>
+                </div>
+             
+                
                 <h1>{this.props.vehicle} Form</h1>
                 <div className="form-group">
                     <span style={requiredStyle}>*</span><label>Enter the {this.props.vehicle} Model: </label>
@@ -78,18 +86,20 @@ export default class Vehicleform extends Component {
                     <input type="text" className="form-control" name="Make" value={this.Make} onChange={this.handleChange} required />
                 </div>
 
+             
+
                 <div className="form-group">
-                    <span style={requiredStyle}>*</span>  <label>Enter the {this.props.vehicle} doors: </label>
+                    <span style={requiredStyle}>*</span><label>Enter the Vehicle Type: </label>
                     <input type="text" className="form-control" disabled name="VehicleType" value={this.props.vehicle} onChange={this.handleChange} required />
                 </div>
 
                 <div className="form-group">
-                    <span style={requiredStyle}>*</span><label>Enter the {this.props.vehicle} type: </label>
-                    <input type="text" className="form-control" name="Engine" value={this.Engine} onChange={this.handleChange} required />
+                    <span style={requiredStyle}>*</span><label>Enter the {this.props.vehicle} Engine: </label>
+                    <input type="text" className="form-control"  name="Engine" value={this.Engine} onChange={this.handleChange} required />
                 </div>
 
                 <div className="form-group">
-                    <span style={requiredStyle}>*</span><label>Enter the {this.props.vehicle} Wheels: </label>
+                    <span style={requiredStyle}>*</span><label>Enter the {this.props.vehicle} Wheels count: </label>
                     <input type="text" className="form-control" name="WheelsCount" value={this.WheelsCount} pattern="[0-9]*" onChange={this.handleChange} required />
                 </div>
 
