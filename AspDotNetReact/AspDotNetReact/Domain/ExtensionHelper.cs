@@ -49,8 +49,7 @@ namespace AspDotNetReact.Domain
 
             if (_strategies.ContainsKey(vehicleType))
                 _strategies[vehicleType].Save(vehicleTypeData);
-            else
-                new DefaultVehicle().Save(vehicleTypeData);
+            
         }
 
     }
