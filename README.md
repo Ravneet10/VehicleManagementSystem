@@ -10,6 +10,12 @@ Summary
 Developed application which currently handle the sale of vehicle type car but have capability to add other types of vehicles as well.
 For Demo purpose I have added Bike Vehicle along with car.
 
+Must Steps:
+1)	After cloning the code and automatic installation of package, do open task runner explorer and click on build and dev option.
+2)	Run the code and in browser press F12 and right click on the refresh icon and click on refresh cache and hard reload option.
+3)	Yipee!!! That’s it .Application should run as expected.
+
+
 Technical Details:
 1)	Form: 
 Possibility: We can use one form for all vehicles by conditionally rendering fields as implemented in VehicleForm.js. Also we can create separate form which is vehicle specific like I created CarForm.js.
